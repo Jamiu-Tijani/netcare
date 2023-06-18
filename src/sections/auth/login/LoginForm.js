@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // @mui
 import { Link, Stack, IconButton, InputAdornment, TextField, Checkbox } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
@@ -40,19 +43,20 @@ export default function LoginForm() {
         window.localStorage.setItem('data', JSON.stringify(res.data));
         navigate('/dashboard', { replace: true });
 
-        // toast.success(`${res.data.message}`);
+        toast.success(`${res?.message}`);
         setSignUP({
           email: '',
           password: '',
         });
       })
       .catch((error) => {
-        // toast.error(`${error?.response?.data?.message}`);
+        toast.error(`${error?.message}`);
       });
   };
 
   return (
     <>
+      <ToastContainer />
       <form onSubmit={handleSubmit}>
         <Stack spacing={3}>
           <TextField name="email" label="Email address" value={signUp.email} onChange={handleChange} />

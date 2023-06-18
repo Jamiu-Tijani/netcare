@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // @mui
 import { Link, Stack, IconButton, InputAdornment, TextField, Checkbox } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
@@ -13,10 +17,6 @@ export default function PatientSignUp() {
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
-
-  const handleClick = () => {
-    navigate('/dashboard', { replace: true });
-  };
 
   const [signUp, setSignUP] = useState({
     first_name: '',
@@ -56,7 +56,7 @@ export default function PatientSignUp() {
       })
       .then((res) => {
         window.localStorage.setItem('data', JSON.stringify(res.data));
-        // toast.success(`${res.data.message}`);
+        toast.success(`${res?.message}`);
         navigate('/verifyemail', { replace: true });
 
         setSignUP({
@@ -74,12 +74,14 @@ export default function PatientSignUp() {
         });
       })
       .catch((error) => {
-        // toast.error(`${error?.response?.data?.message}`);
+        toast.error(`${error?.message}`);
       });
   };
 
   return (
     <>
+      <ToastContainer />
+
       <form onSubmit={handleSubmit}>
         <Stack spacing={3}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: 10 }}>

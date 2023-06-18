@@ -18,6 +18,10 @@ import { LoadingButton } from '@mui/lab';
 // components
 import { Helmet } from 'react-helmet-async';
 
+
+  import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+
 // @mui
 import { styled } from '@mui/material/styles';
 // import {  Stack,  } from '@mui/material';
@@ -90,7 +94,7 @@ export default function OTP() {
       })
       .then((res) => {
         window.localStorage.setItem('data', JSON.stringify(res.data));
-        // toast.success(`${res.data.message}`);
+        toast.success(`${res?.message}`);
             navigate('/login', { replace: true });
 
         setSignUP({
@@ -100,12 +104,13 @@ export default function OTP() {
         });
       })
       .catch((error) => {
-        // toast.error(`${error?.response?.data?.message}`);
+        toast.error(`${error?.message}`);
       });
   };
 
   return (
     <>
+      <ToastContainer />
       <Helmet>
         <title> Login | Minimal UI </title>
       </Helmet>
