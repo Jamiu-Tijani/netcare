@@ -101,7 +101,7 @@ export default function DashboardAppPage() {
                 id: faker.datatype.uuid(),
                 title: faker.name.jobTitle(),
                 description: faker.name.jobTitle(),
-                image: `/assets/images/covers/cover_${index + 1}.jpg`,
+                image: `/assets/images/covers/test${index + 1}.jpeg`,
                 postedAt: faker.date.recent(),
               }))}
             />
@@ -113,11 +113,11 @@ export default function DashboardAppPage() {
               list={[...Array(5)].map((_, index) => ({
                 id: faker.datatype.uuid(),
                 title: [
-                  '1983, orders, $4220',
-                  '12 Invoices have been paid',
-                  'Order #37745 from September',
-                  'New order placed #XF-2356',
-                  'New order placed #XF-2346',
+                  'salawudeen Quadri',
+                  'Tijani Jamiu',
+                  'Ajalekoko Boss',
+                  'otisumi',
+                  'Otiremi',
                 ][index],
                 type: `order${index + 1}`,
                 time: faker.date.past(),

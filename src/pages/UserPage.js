@@ -23,9 +23,11 @@ import {
   TablePagination,
 } from '@mui/material';
 // components
+import { Link } from 'react-router-dom';
 import Label from '../components/label';
 import Iconify from '../components/iconify';
 import Scrollbar from '../components/scrollbar';
+
 // sections
 import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
 // mock
@@ -146,6 +148,12 @@ export default function UserPage() {
 
   const isNotFound = !filteredUsers.length && !!filterName;
 
+  const [profile, setProfile] = useState(false);
+
+  const openProfile = () => {
+    setProfile(!profile);
+  };
+
   return (
     <>
       <Helmet>
@@ -162,7 +170,7 @@ export default function UserPage() {
           </Button>
         </Stack>
 
-        <Card>
+        <Card style={{ position: 'relative' }}>
           <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
           <Scrollbar>
@@ -258,6 +266,20 @@ export default function UserPage() {
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
+          {profile ? (
+            <Card
+              style={{ position: 'absolute', top: '0%', left: '0%', width: '100%', height: '100%', padding: '1em' }}
+            >
+              <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+                <Typography variant="h4" gutterBottom>
+                  Patients Profile
+                </Typography>
+                <Iconify onClick={openProfile} style={{ fontSize: '2em', cursor: 'pointer' }} icon="eva:close-fill" />
+              </Stack>
+
+              <div>hello</div>
+            </Card>
+          ) : null}
         </Card>
       </Container>
 
@@ -279,6 +301,10 @@ export default function UserPage() {
           },
         }}
       >
+        <MenuItem onClick={openProfile}>
+          <Iconify icon={'eva:edit-fill'} sx={{ mr: 2 }} />
+          Profile Details
+        </MenuItem>
         <MenuItem>
           <Iconify icon={'eva:edit-fill'} sx={{ mr: 2 }} />
           Edit
