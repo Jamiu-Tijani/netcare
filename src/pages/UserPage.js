@@ -277,7 +277,32 @@ export default function UserPage() {
                 <Iconify onClick={openProfile} style={{ fontSize: '2em', cursor: 'pointer' }} icon="eva:close-fill" />
               </Stack>
 
-              <div>hello</div>
+              <img src="/assest/images/covers/test.jpeg" alt="" />
+
+              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-around' }}>
+                <div>
+                  <h3>
+                    Patient Name: <span>Salawudeen Quadri</span>{' '}
+                  </h3>
+                  <h3>
+                    Age: <span>18</span>
+                  </h3>
+                  <h3>
+                    Wetin do patient: <span>E day owe pamlmpay</span>
+                  </h3>
+                </div>
+                <div>
+                  <h3>
+                    Patient Name: <span>Salawudeen Quadri</span>{' '}
+                  </h3>
+                  <h3>
+                    Age: <span>18</span>
+                  </h3>
+                  <h3>
+                    Wetin do patient: <span>E day owe pamlmpay</span>
+                  </h3>
+                </div>
+              </div>
             </Card>
           ) : null}
         </Card>

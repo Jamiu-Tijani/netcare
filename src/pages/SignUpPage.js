@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-
+import { useState } from 'react';
 // @mui
 import { styled } from '@mui/material/styles';
 import { Link, Container, Typography, Divider, Stack, Button } from '@mui/material';
@@ -8,8 +8,9 @@ import useResponsive from '../hooks/useResponsive';
 // components
 import Logo from '../components/logo';
 import Iconify from '../components/iconify';
+import '../sections/auth/signup/style.css';
 // sections
-import { LoginForm } from '../sections/auth/login';
+import { SignUpForm, PatientSignUp } from '../sections/auth/signup';
 
 // ----------------------------------------------------------------------
 
@@ -30,7 +31,7 @@ const StyledSection = styled('div')(({ theme }) => ({
 }));
 
 const StyledContent = styled('div')(({ theme }) => ({
-  maxWidth: 480,
+  maxWidth: "100%",
   margin: 'auto',
   minHeight: '100vh',
   display: 'flex',
@@ -41,13 +42,18 @@ const StyledContent = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function LoginPage() {
+export default function SignUpPage() {
   const mdUp = useResponsive('up', 'md');
+
+  const [toggleState, setToggleState] = useState(1);
+  const toggleTab = (index) => {
+    setToggleState(index);
+  };
 
   return (
     <>
       <Helmet>
-        <title> Login | Minimal UI </title>
+        <title>Login | Minimal UI</title>
       </Helmet>
 
       <StyledRoot>
@@ -68,20 +74,32 @@ export default function LoginPage() {
           </StyledSection>
         )}
 
-        <Container maxWidth="sm">
+        <Container maxWidth="lg">
           <StyledContent>
             <Typography variant="h4" gutterBottom>
-              Sign in to NetCare
+              Sign Up
             </Typography>
+            <div
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1em' }}
+            >
+              <span>Sign Up as: </span>
+              <button
+                onClick={() => toggleTab(1)}
+                className={`${toggleState === 1 ? 'active' : 'title'}`}
+                // Add role attribute
+                tabIndex={0} // Add tabIndex attribute
+              >
+                Doctor
+              </button>
+              <button
+                onClick={() => toggleTab(2)}
+                className={`${toggleState === 2 ? 'active' : 'title'}`} // Fix the className condition
+              >
+                Patient
+              </button>
+            </div>
 
-            <Typography variant="body2" sx={{ mb: 5 }}>
-              Don’t have an account? {''}
-              <Link href="/signup" variant="subtitle2">
-                Get started
-              </Link>
-            </Typography>
-
-            <LoginForm />
+            {toggleState === 1 ? <SignUpForm /> : <PatientSignUp />}
           </StyledContent>
         </Container>
       </StyledRoot>

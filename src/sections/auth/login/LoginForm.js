@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 // @mui
 import { Link, Stack, IconButton, InputAdornment, TextField, Checkbox } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
@@ -17,14 +18,49 @@ export default function LoginForm() {
     navigate('/dashboard', { replace: true });
   };
 
+  const [signUp, setSignUP] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleChange = ({ target: { name, value } }) => {
+    setSignUP({ ...signUp, [name]: value });
+  };
+
+  // useEffect(() => {}, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post('https://web-production-3e2f.up.railway.app/v1/auth-user/login/', {
+        email: signUp.username.trim(),
+        password: signUp.password.trim(),
+      })
+      .then((res) => {
+        window.localStorage.setItem('data', JSON.stringify(res.data));
+        // toast.success(`${res.data.message}`);
+        setSignUP({
+          email: '',
+          password: '',
+        });
+      })
+      .catch((error) => {
+        // toast.error(`${error?.response?.data?.message}`);
+
+      });
+  };
+
   return (
     <>
+  <form onSubmit={handleSubmit}>
       <Stack spacing={3}>
-        <TextField name="email" label="Email address" />
+        <TextField name="email" label="Email address" value={signUp.email} onChange={handleChange} />
 
         <TextField
           name="password"
           label="Password"
+          value={signUp.password}
+          onChange={handleChange}
           type={showPassword ? 'text' : 'password'}
           InputProps={{
             endAdornment: (
@@ -45,9 +81,10 @@ export default function LoginForm() {
         </Link>
       </Stack>
 
-      <LoadingButton fullWidth size="large" type="submit" variant="contained" onClick={handleClick}>
+      <LoadingButton fullWidth size="large" type="submit" variant="contained">
         Login
       </LoadingButton>
+      </form>
     </>
   );
 }
