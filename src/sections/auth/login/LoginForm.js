@@ -41,7 +41,7 @@ export default function LoginForm() {
       })
       .then((res) => {
         window.localStorage.setItem('data', JSON.stringify(res.data));
-        navigate('/dashboard', { replace: true });
+        navigate('/dashboard/app', { replace: true });
 
         toast.success(`${res?.message}`);
         setSignUP({
@@ -50,7 +50,7 @@ export default function LoginForm() {
         });
       })
       .catch((error) => {
-        toast.error(`${error?.message}`);
+          toast.error(`${error?.response?.data?.errors}`);
       });
   };
 

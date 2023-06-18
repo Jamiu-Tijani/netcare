@@ -104,7 +104,7 @@ export default function OTP() {
         });
       })
       .catch((error) => {
-        toast.error(`${error?.message}`);
+         toast.error(`${error?.response?.data?.errors}`);
       });
   };
 
