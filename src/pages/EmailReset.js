@@ -67,9 +67,7 @@ export default function EmailReset() {
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleClick = () => {
-    navigate('/dashboard', { replace: true });
-  };
+
 
   const [signUp, setSignUP] = useState({
     email: '',
