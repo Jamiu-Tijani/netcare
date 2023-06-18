@@ -33,11 +33,13 @@ export default function LoginForm() {
     e.preventDefault();
     axios
       .post('https://web-production-3e2f.up.railway.app/v1/auth-user/login/', {
-        email: signUp.username.trim(),
+        email: signUp.email.trim(),
         password: signUp.password.trim(),
       })
       .then((res) => {
         window.localStorage.setItem('data', JSON.stringify(res.data));
+        navigate('/dashboard', { replace: true });
+
         // toast.success(`${res.data.message}`);
         setSignUP({
           email: '',
@@ -46,44 +48,43 @@ export default function LoginForm() {
       })
       .catch((error) => {
         // toast.error(`${error?.response?.data?.message}`);
-
       });
   };
 
   return (
     <>
-  <form onSubmit={handleSubmit}>
-      <Stack spacing={3}>
-        <TextField name="email" label="Email address" value={signUp.email} onChange={handleChange} />
+      <form onSubmit={handleSubmit}>
+        <Stack spacing={3}>
+          <TextField name="email" label="Email address" value={signUp.email} onChange={handleChange} />
 
-        <TextField
-          name="password"
-          label="Password"
-          value={signUp.password}
-          onChange={handleChange}
-          type={showPassword ? 'text' : 'password'}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
-                  <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
-      </Stack>
+          <TextField
+            name="password"
+            label="Password"
+            value={signUp.password}
+            onChange={handleChange}
+            type={showPassword ? 'text' : 'password'}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
+                    <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
+        </Stack>
 
-      <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
-        <Checkbox name="remember" label="Remember me" />
-        <Link variant="subtitle2" underline="hover">
-          Forgot password?
-        </Link>
-      </Stack>
+        <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
+          <Checkbox name="remember" label="Remember me" />
+          <Link href="/emailreset" variant="subtitle2" underline="hover">
+            Forgot password?
+          </Link>
+        </Stack>
 
-      <LoadingButton fullWidth size="large" type="submit" variant="contained">
-        Login
-      </LoadingButton>
+        <LoadingButton fullWidth size="large" type="submit" variant="contained">
+          Login
+        </LoadingButton>
       </form>
     </>
   );

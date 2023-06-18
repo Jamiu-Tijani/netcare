@@ -62,6 +62,8 @@ export default function SignUpForm() {
       .then((res) => {
         window.localStorage.setItem('data', JSON.stringify(res.data));
         // toast.success(`${res.data.message}`);
+        navigate('/verifyemail', { replace: true });
+
         setSignUP({
           first_name: '',
           last_name: '',

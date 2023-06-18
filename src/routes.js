@@ -10,6 +10,9 @@ import Page404 from './pages/Page404';
 import ProductsPage from './pages/ProductsPage';
 import DashboardAppPage from './pages/DashboardAppPage';
 import SignUpPage from './pages/SignUpPage';
+import EmailReset from './pages/EmailReset';
+import OTP from './pages/OTP';
+import VerifyEmail from './pages/VerifyEmail';
 
 // ----------------------------------------------------------------------
 
@@ -19,7 +22,7 @@ export default function Router() {
       path: '/dashboard',
       element: <DashboardLayout />,
       children: [
-        { element: <Navigate to="/dashboard/app" />, index: true },
+        { element: <Navigate to="/dashboard/app" /> },
         { path: 'app', element: <DashboardAppPage /> },
         { path: 'user', element: <UserPage /> },
         { path: 'products', element: <ProductsPage /> },
@@ -29,10 +32,23 @@ export default function Router() {
     {
       path: 'login',
       element: <LoginPage />,
+      index: true,
     },
     {
       path: 'signup',
       element: <SignUpPage />,
+    },
+    {
+      path: 'emailreset',
+      element: <EmailReset />,
+    },
+    {
+      path: 'otp',
+      element: <OTP />,
+    },
+    {
+      path: 'verifyemail',
+      element: <VerifyEmail />,
     },
     {
       element: <SimpleLayout />,
