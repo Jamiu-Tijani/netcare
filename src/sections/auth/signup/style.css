@@ -1,0 +1,35 @@
+.active {
+  width: 35%;
+  height: 40px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  background-color: #2065d1;
+  font-weight: 700;
+  line-height: 1.7142857142857142;
+  font-size: 0.9375rem;
+  text-transform: capitalize;
+  font-family: Public Sans, sans-serif;
+  min-width: 64px;
+  padding: 8px 22px;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.title {
+  width: 35%;
+  height: 40px;
+  font-size: 20px;
+  border: 1px solid #2065d1;
+  outline: none;
+  background-color: transparent;
+  font-weight: 700;
+  line-height: 1.7142857142857142;
+  font-size: 0.9375rem;
+  text-transform: capitalize;
+  font-family: Public Sans, sans-serif;
+  min-width: 64px;
+  padding: 8px 22px;
+  border-radius: 6px;
+  color: #2065d1;
+}
