@@ -149,15 +149,15 @@ export default function UserPage() {
   const isNotFound = !filteredUsers.length && !!filterName;
 
   const [profile, setProfile] = useState(false);
-  const [details, setDetails] = useState(false) 
+  const [details, setDetails] = useState(false);
 
   const openProfile = () => {
     setProfile(!profile);
   };
 
   const openDetails = () => {
-    setDetails(!details)                                                                                                                                                                                                                                      
-  }
+    setDetails(!details);
+  };
 
   return (
     <>
@@ -284,10 +284,9 @@ export default function UserPage() {
 
               <img src="/assest/images/covers/test.jpeg" alt="" />
 
-              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-around' }}>
-                <div
-                onClick={openDetails}
-                                                                                                                           
+              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start', gap: 10, flexWrap: "wrap", overflowY: "scroll",maxHeight: 900 }}>
+                <button
+                  onClick={openDetails}
                   style={{
                     width: 300,
                     height: 400,
@@ -296,6 +295,8 @@ export default function UserPage() {
                     borderColor: '#2065D1',
                     borderStyle: 'solid',
                     padding: 10,
+                    backgroundColor: 'transparent',
+                    outline: 'none',
                   }}
                 >
                   <h3>
@@ -313,7 +314,157 @@ export default function UserPage() {
                   <h3>
                     Date: <span style={{ fontSize: 19, fontWeight: '500' }}>17/04/202</span>
                   </h3>
-                </div>
+                </button>
+                 <button
+                  onClick={openDetails}
+                  style={{
+                    width: 300,
+                    height: 400,
+                    borderRadius: 12,
+                    borderWidth: 1,
+                    borderColor: '#2065D1',
+                    borderStyle: 'solid',
+                    padding: 10,
+                    backgroundColor: 'transparent',
+                    outline: 'none',
+                  }}
+                >
+                  <h3>
+                    Patient Name: <span style={{ fontSize: 19, fontWeight: '500' }}>Salawudeen Quadri</span>{' '}
+                  </h3>
+                  <h3>
+                    Age: <span style={{ fontSize: 19, fontWeight: '500' }}>18</span>
+                  </h3>
+                  <h3>
+                    Gender: <span style={{ fontSize: 19, fontWeight: '500' }}>Male</span>
+                  </h3>
+                  <h3>
+                    Complaints: <span style={{ fontSize: 19, fontWeight: '500' }}>Headache</span>
+                  </h3>
+                  <h3>
+                    Date: <span style={{ fontSize: 19, fontWeight: '500' }}>17/04/202</span>
+                  </h3>
+                </button>
+                 <button
+                  onClick={openDetails}
+                  style={{
+                    width: 300,
+                    height: 400,
+                    borderRadius: 12,
+                    borderWidth: 1,
+                    borderColor: '#2065D1',
+                    borderStyle: 'solid',
+                    padding: 10,
+                    backgroundColor: 'transparent',
+                    outline: 'none',
+                  }}
+                >
+                  <h3>
+                    Patient Name: <span style={{ fontSize: 19, fontWeight: '500' }}>Salawudeen Quadri</span>{' '}
+                  </h3>
+                  <h3>
+                    Age: <span style={{ fontSize: 19, fontWeight: '500' }}>18</span>
+                  </h3>
+                  <h3>
+                    Gender: <span style={{ fontSize: 19, fontWeight: '500' }}>Male</span>
+                  </h3>
+                  <h3>
+                    Complaints: <span style={{ fontSize: 19, fontWeight: '500' }}>Headache</span>
+                  </h3>
+                  <h3>
+                    Date: <span style={{ fontSize: 19, fontWeight: '500' }}>17/04/202</span>
+                  </h3>
+                </button>
+                 <button
+                  onClick={openDetails}
+                  style={{
+                    width: 300,
+                    height: 400,
+                    borderRadius: 12,
+                    borderWidth: 1,
+                    borderColor: '#2065D1',
+                    borderStyle: 'solid',
+                    padding: 10,
+                    backgroundColor: 'transparent',
+                    outline: 'none',
+                  }}
+                >
+                  <h3>
+                    Patient Name: <span style={{ fontSize: 19, fontWeight: '500' }}>Salawudeen Quadri</span>{' '}
+                  </h3>
+                  <h3>
+                    Age: <span style={{ fontSize: 19, fontWeight: '500' }}>18</span>
+                  </h3>
+                  <h3>
+                    Gender: <span style={{ fontSize: 19, fontWeight: '500' }}>Male</span>
+                  </h3>
+                  <h3>
+                    Complaints: <span style={{ fontSize: 19, fontWeight: '500' }}>Headache</span>
+                  </h3>
+                  <h3>
+                    Date: <span style={{ fontSize: 19, fontWeight: '500' }}>17/04/202</span>
+                  </h3>
+                </button>
+                  <button
+                  onClick={openDetails}
+                  style={{
+                    width: 300,
+                    height: 400,
+                    borderRadius: 12,
+                    borderWidth: 1,
+                    borderColor: '#2065D1',
+                    borderStyle: 'solid',
+                    padding: 10,
+                    backgroundColor: 'transparent',
+                    outline: 'none',
+                  }}
+                >
+                  <h3>
+                    Patient Name: <span style={{ fontSize: 19, fontWeight: '500' }}>Salawudeen Quadri</span>{' '}
+                  </h3>
+                  <h3>
+                    Age: <span style={{ fontSize: 19, fontWeight: '500' }}>18</span>
+                  </h3>
+                  <h3>
+                    Gender: <span style={{ fontSize: 19, fontWeight: '500' }}>Male</span>
+                  </h3>
+                  <h3>
+                    Complaints: <span style={{ fontSize: 19, fontWeight: '500' }}>Headache</span>
+                  </h3>
+                  <h3>
+                    Date: <span style={{ fontSize: 19, fontWeight: '500' }}>17/04/202</span>
+                  </h3>
+                </button>
+                  <button
+                  onClick={openDetails}
+                  style={{
+                    width: 300,
+                    height: 400,
+                    borderRadius: 12,
+                    borderWidth: 1,
+                    borderColor: '#2065D1',
+                    borderStyle: 'solid',
+                    padding: 10,
+                    backgroundColor: 'transparent',
+                    outline: 'none',
+                  }}
+                >
+                  <h3>
+                    Patient Name: <span style={{ fontSize: 19, fontWeight: '500' }}>Salawudeen Quadri</span>{' '}
+                  </h3>
+                  <h3>
+                    Age: <span style={{ fontSize: 19, fontWeight: '500' }}>18</span>
+                  </h3>
+                  <h3>
+                    Gender: <span style={{ fontSize: 19, fontWeight: '500' }}>Male</span>
+                  </h3>
+                  <h3>
+                    Complaints: <span style={{ fontSize: 19, fontWeight: '500' }}>Headache</span>
+                  </h3>
+                  <h3>
+                    Date: <span style={{ fontSize: 19, fontWeight: '500' }}>17/04/202</span>
+                  </h3>
+                </button>
               </div>
             </Card>
           ) : null}
