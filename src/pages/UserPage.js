@@ -149,10 +149,15 @@ export default function UserPage() {
   const isNotFound = !filteredUsers.length && !!filterName;
 
   const [profile, setProfile] = useState(false);
+  const [details, setDetails] = useState(false) 
 
   const openProfile = () => {
     setProfile(!profile);
   };
+
+  const openDetails = () => {
+    setDetails(!details)                                                                                                                                                                                                                                      
+  }
 
   return (
     <>
@@ -272,7 +277,7 @@ export default function UserPage() {
             >
               <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
                 <Typography variant="h4" gutterBottom>
-                  Patients Profile
+                  Patients Profile Record
                 </Typography>
                 <Iconify onClick={openProfile} style={{ fontSize: '2em', cursor: 'pointer' }} icon="eva:close-fill" />
               </Stack>
@@ -280,26 +285,78 @@ export default function UserPage() {
               <img src="/assest/images/covers/test.jpeg" alt="" />
 
               <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-around' }}>
-                <div>
+                <div
+                onClick={openDetails}
+                                                                                                                           
+                  style={{
+                    width: 300,
+                    height: 400,
+                    borderRadius: 12,
+                    borderWidth: 1,
+                    borderColor: '#2065D1',
+                    borderStyle: 'solid',
+                    padding: 10,
+                  }}
+                >
                   <h3>
-                    Patient Name: <span>Salawudeen Quadri</span>{' '}
+                    Patient Name: <span style={{ fontSize: 19, fontWeight: '500' }}>Salawudeen Quadri</span>{' '}
                   </h3>
                   <h3>
-                    Age: <span>18</span>
+                    Age: <span style={{ fontSize: 19, fontWeight: '500' }}>18</span>
                   </h3>
                   <h3>
-                    Wetin do patient: <span>E day owe pamlmpay</span>
+                    Gender: <span style={{ fontSize: 19, fontWeight: '500' }}>Male</span>
+                  </h3>
+                  <h3>
+                    Complaints: <span style={{ fontSize: 19, fontWeight: '500' }}>Headache</span>
+                  </h3>
+                  <h3>
+                    Date: <span style={{ fontSize: 19, fontWeight: '500' }}>17/04/202</span>
                   </h3>
                 </div>
-                <div>
+              </div>
+            </Card>
+          ) : null}
+
+          {details ? (
+            <Card
+              style={{ position: 'absolute', top: '0%', left: '0%', width: '100%', height: '100%', padding: '1em' }}
+            >
+              <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+                <Typography variant="h4" gutterBottom>
+                  Patients Profile Record
+                </Typography>
+                <Iconify onClick={openProfile} style={{ fontSize: '2em', cursor: 'pointer' }} icon="eva:close-fill" />
+              </Stack>
+
+              <img src="/assest/images/covers/test.jpeg" alt="" />
+
+              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-around' }}>
+                <div
+                  style={{
+                    width: 300,
+                    height: 400,
+                    borderRadius: 12,
+                    borderWidth: 1,
+                    borderColor: '#2065D1',
+                    borderStyle: 'solid',
+                    padding: 10,
+                  }}
+                >
                   <h3>
-                    Patient Name: <span>Salawudeen Quadri</span>{' '}
+                    Patient Name: <span style={{ fontSize: 19, fontWeight: '500' }}>Salawudeen Quadri</span>{' '}
                   </h3>
                   <h3>
-                    Age: <span>18</span>
+                    Age: <span style={{ fontSize: 19, fontWeight: '500' }}>18</span>
                   </h3>
                   <h3>
-                    Wetin do patient: <span>E day owe pamlmpay</span>
+                    Gender: <span style={{ fontSize: 19, fontWeight: '500' }}>Male</span>
+                  </h3>
+                  <h3>
+                    Complaints: <span style={{ fontSize: 19, fontWeight: '500' }}>Headache</span>
+                  </h3>
+                  <h3>
+                    Date: <span style={{ fontSize: 19, fontWeight: '500' }}>17/04/202</span>
                   </h3>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 // layouts
-import DashboardLayout from './layouts/dashboard';
+import DashboardLayout, { PatientDashboardLayout } from './layouts/dashboard';
 import SimpleLayout from './layouts/simple';
 //
 import BlogPage from './pages/BlogPage';
@@ -13,19 +13,38 @@ import SignUpPage from './pages/SignUpPage';
 import EmailReset from './pages/EmailReset';
 import OTP from './pages/OTP';
 import VerifyEmail from './pages/VerifyEmail';
+import Homepage from './pages/Homepage';
+import PatientDashboard from './pages/PatientDashboard';
+import PatientProfile from './pages/PatientProfile';
 
 // ----------------------------------------------------------------------
 
 export default function Router() {
   const routes = useRoutes([
     {
+      path: 'homepage',
+      element: <Homepage />,
+      index: true,
+    },
+    {
       path: '/dashboard',
       element: <DashboardLayout />,
       children: [
-        { element: <Navigate to="/dashboard/app" /> },
-        { path: 'app', element: <DashboardAppPage />, index: true },
+        { element: <Navigate to="/dashboard/app" />, index: true },
+        { path: 'app', element: <DashboardAppPage /> },
         { path: 'user', element: <UserPage /> },
         { path: 'products', element: <ProductsPage /> },
+        { path: 'blog', element: <BlogPage /> },
+      ],
+    },
+       {
+      path: '/patientdashboard',
+      element: <PatientDashboardLayout />,
+      children: [
+        { element: <Navigate to="/patientdashboard/app" />, index: true },
+        { path: 'app', element: <PatientDashboard /> },
+        { path: 'user', element: <UserPage /> },
+        { path: 'profile', element: <PatientProfile /> },
         { path: 'blog', element: <BlogPage /> },
       ],
     },
