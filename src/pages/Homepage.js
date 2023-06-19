@@ -52,6 +52,8 @@ const Homepage = () => (
               <p>We get insulted by others, lose trust for those We get back freezes</p>
             </div>
           </div>
+          <div className="wokImgCap">
+
           <div className="wokImg">
             <div className="img">
               <img src="/assets/images/covers/test2.jpeg" alt="" />
@@ -62,6 +64,7 @@ const Homepage = () => (
               the hight standards.
             </p>
             <button>find out more</button>
+          </div>
           </div>
         </div>
       </div>
@@ -113,6 +116,9 @@ const Homepage = () => (
             </div>
           </div>
         </div>
+      </div>
+      <div className='spon'>
+        j
       </div>
     </section>
   </>

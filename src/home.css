@@ -234,6 +234,9 @@ nav.topNav {
   color: rgb(123, 128, 154);
   letter-spacing: -0.125px;
 }
+.wokImgCap {
+  width: 50%;
+}
 
 .wokImg {
   color: rgba(0, 0, 0, 0.87);
@@ -251,6 +254,7 @@ nav.topNav {
   overflow: visible;
   width: 400px;
   padding: 0 1em 1em;
+  margin: auto;
 }
 
 .wokImg .img {
@@ -412,7 +416,7 @@ nav.topNav {
 .worDiv {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 20px;
 }
