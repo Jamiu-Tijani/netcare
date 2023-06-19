@@ -4,7 +4,10 @@ nav.topNav {
   justify-content: space-between;
   width: 100%;
   max-width: 1440px;
-  margin: 1em auto;
+  margin: 0em auto 1em;
+}
+.topNav {
+  color: "#fff";
 }
 .header {
   min-height: 75vh;
@@ -498,4 +501,12 @@ nav.topNav {
   text-decoration: none;
   color: rgb(123, 128, 154);
   letter-spacing: -0.125px;
+}
+.sponInut{
+  width: 40%;
+  margin: 1em auto;
+}
+.foo{
+  margin: 3em auto 1em;
+  text-align: center;
 }
