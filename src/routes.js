@@ -22,7 +22,7 @@ import PatientProfile from './pages/PatientProfile';
 export default function Router() {
   const routes = useRoutes([
     {
-      path: 'homepage',
+      path: '/',
       element: <Homepage />,
       index: true,
     },
