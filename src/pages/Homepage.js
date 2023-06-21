@@ -44,8 +44,10 @@ const Homepage = () => {
 
         toast.success(`${res?.message}`);
         setSignUP({
-          email: '',
-          password: '',
+             email: '',
+    subject: '',
+    message: '',
+    name: '',
         });
       })
       .catch((error) => {
@@ -178,7 +180,7 @@ const Homepage = () => {
                 <TextField name="name" label="Name" value={signUp.name} onChange={handleChange} />
                 <TextField name="email" label="Email address" value={signUp.email} onChange={handleChange} />
                 <TextField name="subject" label="Subject" value={signUp.subject} onChange={handleChange} />
-                <TextField name="massage" label="Message" value={signUp.message} onChange={handleChange} />
+                <TextField name="message" label="Message" value={signUp.message} onChange={handleChange} />
               </Stack>
               <LoadingButton fullWidth size="large" type="submit" variant="contained">
                 Make Enquire
