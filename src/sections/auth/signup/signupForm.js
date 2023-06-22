@@ -140,7 +140,7 @@ export default function SignUpForm() {
                 onChange={handleChange}
                 style={{ width: '100%', marginBottom: '1em' }}
               /> */}
-              <input type="date" name="date_of_birth" value={signUp.date_of_birth} onChange={handleChange} />
+              <input type="date" name="date_of_birth" value={signUp.date_of_birth} onChange={handleChange}className="newInput"/>
             </div>
             <div
               style={{
