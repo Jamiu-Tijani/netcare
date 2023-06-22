@@ -7,7 +7,7 @@ nav.topNav {
   margin: 0em auto 1em;
 }
 .topNav {
-  color: "#fff";
+  color: '#fff';
 }
 .header {
   min-height: 75vh;
@@ -102,6 +102,11 @@ nav.topNav {
   align-self: center;
 }
 
+.authButton {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
 .header h5 {
   text-align: center;
   margin: 34px 0px 8px;
@@ -502,11 +507,44 @@ nav.topNav {
   color: rgb(123, 128, 154);
   letter-spacing: -0.125px;
 }
-.sponInut{
+.spon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+}
+.spon p {
+  font-size: 30px;
+  font-weight: 900;
+}
+.sponInut {
   width: 40%;
   margin: 1em auto;
 }
-.foo{
+.foo {
   margin: 3em auto 1em;
   text-align: center;
+}
+
+.newInput {
+  font: inherit;
+  letter-spacing: inherit;
+  color: currentColor;
+  padding: 4px 0 5px;
+  border: 2px solid rgba(145, 158, 171, 0.32);
+  box-sizing: content-box;
+  outline: #2065d1;
+  background: none;
+  height: 1.4375em;
+  border-radius: 6px;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  min-width: 0;
+  width: 98%;
+  -webkit-animation-name: mui-auto-fill-cancel;
+  animation-name: mui-auto-fill-cancel;
+  -webkit-animation-duration: 10ms;
+  animation-duration: 10ms;
+  padding: 16.5px 14px;
 }

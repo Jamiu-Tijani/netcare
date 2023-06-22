@@ -74,7 +74,7 @@ export default function PatientSignUp() {
         });
       })
       .catch((error) => {
-          toast.error(`${error?.response?.data?.errors}`);
+        toast.error(`${error?.response?.data?.errors}`);
       });
   };
 
@@ -215,8 +215,6 @@ export default function PatientSignUp() {
         </Stack>
 
         <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
-          <Checkbox name="remember" label="Remember me" />
-
           <div>
             I Have an Account
             <Link href="/login" variant="subtitle2" underline="hover">

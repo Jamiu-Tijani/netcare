@@ -1,6 +1,9 @@
 // @mui
 import PropTypes from 'prop-types';
 import { Box, Stack, Link, Card, Button, Divider, Typography, CardHeader } from '@mui/material';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 // utils
 import { fToNow } from '../../../utils/formatTime';
 // components
@@ -53,23 +56,59 @@ NewsItem.propTypes = {
 function NewsItem({ news }) {
   const { image, title, description, postedAt } = news;
 
+  const [result, setResult] = useState([]);
+  const token = localStorage.getItem('token')?.replace(/['"]+/g, '');
+  useEffect(() => {
+    function queryApi() {
+      const headers = {
+        'Content-Type': 'application/json',
+        Authorization: `Token ${token}`,
+      };
+      return axios
+        .get(`https://web-production-3e2f.up.railway.app/v1/appointments/get-all-patients-appointments/`, { headers })
+
+        .then((res) => {
+          setResult(res.data.data);
+          console.log(res.data.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+
+    queryApi();
+  }, []);
+
   return (
-    <Stack direction="row" alignItems="center" spacing={2}>
-      <Box component="img" alt={title} src={image} sx={{ width: 48, height: 48, borderRadius: 1.5, flexShrink: 0 }} />
+    <>
+      {result?.map((user, id) => {
+        return (
+          <div key={id}>
+            <Stack direction="row" alignItems="center" spacing={2}>
+              <Box
+                component="img"
+                alt={title}
+                src={image}
+                sx={{ width: 48, height: 48, borderRadius: 1.5, flexShrink: 0 }}
+              />
 
-      <Box sx={{ minWidth: 240, flexGrow: 1 }}>
-        <Link color="inherit" variant="subtitle2" underline="hover" noWrap>
-          {title}
-        </Link>
+              <Box sx={{ minWidth: 240, flexGrow: 1 }}>
+                <Link color="inherit" variant="subtitle2" underline="hover" noWrap>
+                  {user?.patient_name}
+                </Link>
 
-        <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-          {description}
-        </Typography>
-      </Box>
+                <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
+                  {description}
+                </Typography>
+              </Box>
 
-      <Typography variant="caption" sx={{ pr: 3, flexShrink: 0, color: 'text.secondary' }}>
-        {fToNow(postedAt)}
-      </Typography>
-    </Stack>
+              <Typography variant="caption" sx={{ pr: 3, flexShrink: 0, color: 'text.secondary' }}>
+                {user?.date}
+              </Typography>
+            </Stack>
+          </div>
+        );
+      })}
+    </>
   );
 }

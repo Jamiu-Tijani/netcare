@@ -16,6 +16,7 @@ import VerifyEmail from './pages/VerifyEmail';
 import Homepage from './pages/Homepage';
 import PatientDashboard from './pages/PatientDashboard';
 import PatientProfile from './pages/PatientProfile';
+import Schedule from './pages/Schedule';
 
 // ----------------------------------------------------------------------
 
@@ -43,7 +44,7 @@ export default function Router() {
       children: [
         { element: <Navigate to="/patientdashboard/app" />, index: true },
         { path: 'app', element: <PatientDashboard /> },
-        { path: 'user', element: <UserPage /> },
+        { path: 'schedule', element: <Schedule /> },
         { path: 'profile', element: <PatientProfile /> },
         { path: 'blog', element: <BlogPage /> },
       ],

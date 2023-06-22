@@ -1,5 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { faker } from '@faker-js/faker';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography } from '@mui/material';
@@ -23,6 +26,8 @@ import {
 export default function PatientDashboard() {
   const theme = useTheme();
 
+
+
   return (
     <>
       <Helmet>
@@ -35,7 +40,6 @@ export default function PatientDashboard() {
         </Typography>
 
         <Grid container spacing={3}>
-
           <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits
               title="Appointments Completed"
@@ -94,9 +98,9 @@ export default function PatientDashboard() {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={8}>
+          <Grid item xs={12} md={12} lg={12}>
             <AppNewsUpdate
-              title="Future Appointments"
+              title="Patient"
               list={[...Array(5)].map((_, index) => ({
                 id: faker.datatype.uuid(),
                 title: faker.name.jobTitle(),
@@ -107,24 +111,17 @@ export default function PatientDashboard() {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={4}>
+          {/* <Grid item xs={12} md={6} lg={4}>
             <AppOrderTimeline
               title="Appointment Request"
               list={[...Array(5)].map((_, index) => ({
                 id: faker.datatype.uuid(),
-                title: [
-                  'salawudeen Quadri',
-                  'Tijani Jamiu',
-                  'Ajalekoko Boss',
-                  'otisumi',
-                  'Otiremi',
-                ][index],
+                title: ['salawudeen Quadri', 'Tijani Jamiu', 'Ajalekoko Boss', 'otisumi', 'Otiremi'][index],
                 type: `order${index + 1}`,
                 time: faker.date.past(),
               }))}
             />
-          </Grid>
-
+          </Grid> */}
         </Grid>
       </Container>
     </>

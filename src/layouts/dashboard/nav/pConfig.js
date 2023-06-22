@@ -9,11 +9,11 @@ const pConfig = [
     path: '/patientdashboard/app',
     icon: icon('ic_analytics'),
   },
-//   {
-//     title: 'patients',
-//     path: '/dashboard/user',
-//     icon: icon('ic_user'),
-//   },
+  {
+    title: 'Schedule',
+    path: '/patientdashboard/schedule',
+    icon: icon('ic_user'),
+  },
   {
     title: 'profile',
     path: '/patientdashboard/profile',

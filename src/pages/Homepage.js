@@ -40,39 +40,71 @@ const Homepage = () => {
       })
       .then((res) => {
         window.localStorage.setItem('data', JSON.stringify(res.data));
-        navigate('/dashboard/app', { replace: true });
-
-        toast.success(`${res?.message}`);
+        toast.success(`${res?.data.message}`);
+        navigate('/', { replace: true });
         setSignUP({
-             email: '',
-    subject: '',
-    message: '',
-    name: '',
+          email: '',
+          subject: '',
+          message: '',
+          name: '',
         });
+        console.log(res)
       })
       .catch((error) => {
         toast.error(`${error?.response?.data?.errors}`);
       });
   };
+
+
+
+
+  //   const ScheduleAppointment = (e) => {
+  //   e.preventDefault();
+  //   axios
+  //     .post('https://web-production-3e2f.up.railway.app/v1/appointments/schedule-appointment/', {
+  //       email: signUp.email.trim(),
+  //       subject: signUp.subject.trim(),
+  //       message: signUp.message.trim(),
+  //       name: signUp.name.trim(),
+  //     })
+  //     .then((res) => {
+  //       window.localStorage.setItem('data', JSON.stringify(res.data));
+  //       toast.success(`${res?.data.message}`);
+  //       navigate('/', { replace: true });
+  //       setSignUP({
+  //         email: '',
+  //         subject: '',
+  //         message: '',
+  //         name: '',
+  //       });
+  //       console.log(res)
+  //     })
+  //     .catch((error) => {
+  //       toast.error(`${error?.response?.data?.errors}`);
+  //     });
+  // };
   return (
     <>
+    <ToastContainer/>
       <header className="header">
         <nav className="topNav">
           <h3>NatCare</h3>
         </nav>
         <div className="headerCon">
-          <h1>Work with an amazing design</h1>
+          <h1>Revolutionizing Healthcare Connection</h1>
           <p>
-            We're constantly trying to express ourselves and actualize our dreams. If you have the opportunity to play
-            this game
+          Welcome to NetCare, the innovative web application that is transforming the way healthcare connections are made
           </p>
-          <button>
+          <div className='authButton'>
+             <button>
             <Link href="/signup">Create Account</Link>
           </button>
              <button>
             <Link href="/login">Login </Link>
           </button>
 
+          </div>
+         
           <h5>Find US</h5>
           <div className="social">
             <AiFillFacebook className="icon" />
@@ -187,6 +219,7 @@ const Homepage = () => {
               </LoadingButton>
             </form>
           </div>
+        
         </div>
         <footer className="foo">All rights reserved. Copyright © 2023 Netcare</footer>
       </section>

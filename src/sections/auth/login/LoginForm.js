@@ -16,9 +16,6 @@ export default function LoginForm() {
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
-
- 
-
   const [signUp, setSignUP] = useState({
     email: '',
     password: '',
@@ -32,14 +29,23 @@ export default function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    window.localStorage.removeItem('token');
+
     axios
       .post('https://web-production-3e2f.up.railway.app/v1/auth-user/login/', {
         email: signUp.email.trim(),
         password: signUp.password.trim(),
       })
       .then((res) => {
-        window.localStorage.setItem('data', JSON.stringify(res.data));
-        navigate('/dashboard/app', { replace: true });
+        console.log(res.data.data);
+
+        window.localStorage.setItem('token', JSON.stringify(res.data.data.token));
+
+        if (res.data.data['user-type'] === 'patient') {
+          navigate('/patientdashboard/app', { replace: true });
+        } else {
+          navigate('/dashboard/app', { replace: true });
+        }
 
         toast.success(`${res?.message}`);
         setSignUP({
@@ -48,7 +54,7 @@ export default function LoginForm() {
         });
       })
       .catch((error) => {
-          toast.error(`${error?.response?.data?.errors}`);
+        toast.error(`${error?.response?.data?.errors}`);
       });
   };
 
