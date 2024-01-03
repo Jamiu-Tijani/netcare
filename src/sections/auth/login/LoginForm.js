@@ -20,6 +20,8 @@ export default function LoginForm() {
     email: '',
     password: '',
   });
+  const [emailIsInValid,setEmailIsInValid] = useState(false);
+
 
   const handleChange = ({ target: { name, value } }) => {
     setSignUP({ ...signUp, [name]: value });
@@ -28,6 +30,15 @@ export default function LoginForm() {
   // useEffect(() => {}, []);
 
   const handleSubmit = (e) => {
+    // input validation
+    const emailIsValid = signUp.email.includes('@')
+    if(!emailIsValid){
+      setEmailIsInValid(true)
+      // stops the progression of he code if invalid
+      return;
+    }
+
+    setEmailIsInValid(false)
     e.preventDefault();
     window.localStorage.removeItem('token');
 
@@ -57,14 +68,18 @@ export default function LoginForm() {
         toast.error(`${error?.response?.data?.errors}`);
       });
   };
+function handleInputBlur (){
 
+}
   return (
     <>
       <ToastContainer />
       <form onSubmit={handleSubmit}>
         <Stack spacing={3}>
-          <TextField name="email" label="Email address" value={signUp.email} onChange={handleChange} />
-
+          <TextField name="email" onBlur={handleInputBlur} label="Email address" value={signUp.email} onChange={handleChange} />
+          <span>
+            {emailIsInValid && <p>Pls enter a valid email address</p>}
+          </span>
           <TextField
             name="password"
             label="Password"

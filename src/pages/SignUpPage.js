@@ -83,9 +83,7 @@ export default function SignUpPage() {
               style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1em' }}
             >
               <span>Sign Up as: </span>
-              <button
-                onClick={() => toggleTab(1)}
-                className={`${toggleState === 1 ? 'active' : 'title'}`}
+              <button onClick={() => toggleTab(1)} className={`${toggleState === 1 ? 'active' : 'title'}`}
                 // Add role attribute
                 tabIndex={0} // Add tabIndex attribute
               >

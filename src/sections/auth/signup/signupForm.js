@@ -34,6 +34,7 @@ export default function SignUpForm() {
     specialization: '',
   });
 
+
   const handleChange = ({ target: { name, value } }) => {
     setSignUP({ ...signUp, [name]: value });
   };
@@ -42,8 +43,7 @@ export default function SignUpForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post(
+    axios.post(
         'https://web-production-3e2f.up.railway.app/v1/auth-user/create-doc/',
         {
           first_name: signUp.first_name.trim(),

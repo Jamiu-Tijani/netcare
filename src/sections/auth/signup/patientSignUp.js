@@ -17,7 +17,8 @@ export default function PatientSignUp() {
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
-
+  
+  
   const [signUp, setSignUP] = useState({
     first_name: '',
     last_name: '',
@@ -76,6 +77,45 @@ export default function PatientSignUp() {
       .catch((error) => {
         toast.error(`${error?.response?.data?.errors}`);
       });
+      // Axios async and Await method
+      // const postForm = async () => {
+        // e.preventDefault()
+      //   try {
+      //     const response = await axios.post('https://web-production-3e2f.up.railway.app/v1/auth-user/create-patient/', {
+      //       first_name: signUp.first_name.trim(),
+      //       last_name: signUp.last_name.trim(),
+      //       email: signUp.email.trim(),
+      //       phone_number: signUp.phone_number.trim(),
+      //       residential_address: signUp.residential_address.trim(),
+      //       gender: signUp.gender.trim(),
+      //       date_of_birth: signUp.date_of_birth.trim(),
+      //       next_of_kin_name: signUp.next_of_kin_name.trim(),
+      //       next_of_kin_phone: signUp.next_of_kin_phone.trim(),
+      //       next_of_kin_residential_address: signUp.next_of_kin_residential_address.trim(),
+      //       password: signUp.password.trim(),
+      //     });
+      //     const data = await response.json;
+      //     window.localStorage.setItem('data', JSON.stringify(data));
+      //     // toast.success(`${response?.message}`);
+      //     navigate('/verifyemail', { replace: true });
+      //     setSignUP({
+      //       first_name: '',
+      //       last_name: '',
+      //       email: '',
+      //       phone_number: '',
+      //       residential_address: '',
+      //       gender: '',
+      //       date_of_birth: '',
+      //       next_of_kin_name: '',
+      //       next_of_kin_phone: '',
+      //       next_of_kin_residential_address: '',
+      //       password: '',
+      //     });
+      //   } catch (error) {
+      //     toast.error(`${error?.response?.data?.errors}`);
+      //   }
+      // };
+      // postForm()
   };
 
   return (
